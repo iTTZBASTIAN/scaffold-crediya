@@ -1,7 +1,9 @@
 package co.com.bancolombia.jpa;
 
-import org.springframework.data.repository.CrudRepository;
-import org.springframework.data.repository.query.QueryByExampleExecutor;
+import co.com.bancolombia.jpa.entity.UserEntity;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface JPARepository extends CrudRepository<Object/* change for adapter model */, String>, QueryByExampleExecutor<Object/* change for adapter model */> {
+public interface JPARepository extends JpaRepository<UserEntity, Long> {
+
+    boolean existsByCorreoElectronico(String correoElectronico);
 }
